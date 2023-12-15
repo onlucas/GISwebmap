@@ -32,13 +32,12 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/UnempRtPop500_Dec13_1.js"></script>
-        <script src="data/PovRTPop500_Dec13_2.js"></script>
-        <script src="data/CTsinCityBoundary_3.js"></script>
-        <script src="data/WSC_geocodepts2_4.js"></script>
+        <script src="data/CityHmlsns2022grdtd_1.js"></script>
+        <script src="data/CTsinCityBoundary_2.js"></script>
+        <script src="data/WSC_geocodepts2_3.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
+            zoomControl:true, maxZoom:28, minZoom:10
         }).fitBounds([[33.68878113372907,-118.78406893289173],[34.353128881925024,-118.03947693421141]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -52,14 +51,14 @@
             pane: 'pane_OpenStreetMap_0',
             opacity: 0.25,
             attribution: '',
-            minZoom: 1,
+            minZoom: 10,
             maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
         layer_OpenStreetMap_0;
         map.addLayer(layer_OpenStreetMap_0);
-        function pop_UnempRtPop500_Dec13_1(feature, layer) {
+        function pop_CityHmlsns2022grdtd_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['STATEFP'] !== null ? autolinker.link(feature.properties['STATEFP'].toLocaleString()) : '') + '</td>\
@@ -77,58 +76,56 @@
                         <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['LF_Tot16pl'] !== null ? autolinker.link(feature.properties['LF_Tot16pl'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['tract_spli'] !== null ? autolinker.link(feature.properties['tract_spli'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['LFc_16pl'] !== null ? autolinker.link(feature.properties['LFc_16pl'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['LFc_Unemp'] !== null ? autolinker.link(feature.properties['LFc_Unemp'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Pop_Total'] !== null ? autolinker.link(feature.properties['Pop_Total'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['LACity'] !== null ? autolinker.link(feature.properties['LACity'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FPL_Status'] !== null ? autolinker.link(feature.properties['FPL_Status'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Community_'] !== null ? autolinker.link(feature.properties['Community_'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['BlwFPL'] !== null ? autolinker.link(feature.properties['BlwFPL'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['SPA'] !== null ? autolinker.link(feature.properties['SPA'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['AbvFPL'] !== null ? autolinker.link(feature.properties['AbvFPL'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['SD'] !== null ? autolinker.link(feature.properties['SD'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Tot18pl'] !== null ? autolinker.link(feature.properties['Cv_Tot18pl'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['CD'] !== null ? autolinker.link(feature.properties['CD'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Vet18pl'] !== null ? autolinker.link(feature.properties['Cv_Vet18pl'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ca_ssd'] !== null ? autolinker.link(feature.properties['ca_ssd'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Vet1864'] !== null ? autolinker.link(feature.properties['Cv_Vet1864'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ca_sad'] !== null ? autolinker.link(feature.properties['ca_sad'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Vet65pl'] !== null ? autolinker.link(feature.properties['Cv_Vet65pl'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['us_cd'] !== null ? autolinker.link(feature.properties['us_cd'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_NonVet'] !== null ? autolinker.link(feature.properties['Cv_NonVet'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['DemogSurvC'] !== null ? autolinker.link(feature.properties['DemogSurvC'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Pop_TotalN'] !== null ? autolinker.link(feature.properties['Pop_TotalN'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['totPeople'] !== null ? autolinker.link(feature.properties['totPeople'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['PovRt'] !== null ? autolinker.link(feature.properties['PovRt'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['UnempRtv2'] !== null ? autolinker.link(feature.properties['UnempRtv2'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">TotHmls_N</th>\
+                        <td>' + (feature.properties['TotHmls_N'] !== null ? autolinker.link(feature.properties['TotHmls_N'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_UnempRtPop500_Dec13_1_0(feature) {
-            if (feature.properties['UnempRtv2'] >= 0.000000 && feature.properties['UnempRtv2'] <= 4.990000 ) {
+        function style_CityHmlsns2022grdtd_1_0(feature) {
+            if (feature.properties['TotHmls_N'] >= 0.000000 && feature.properties['TotHmls_N'] <= 9.000000 ) {
                 return {
-                pane: 'pane_UnempRtPop500_Dec13_1',
+                pane: 'pane_CityHmlsns2022grdtd_1',
                 opacity: 1,
                 color: 'rgba(202,202,202,1.0)',
                 dashArray: '',
@@ -137,155 +134,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(252,251,253,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['UnempRtv2'] >= 5.000000 && feature.properties['UnempRtv2'] <= 6.990000 ) {
-                return {
-                pane: 'pane_UnempRtPop500_Dec13_1',
-                opacity: 1,
-                color: 'rgba(202,202,202,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(201,202,227,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['UnempRtv2'] >= 7.000000 && feature.properties['UnempRtv2'] <= 9.990000 ) {
-                return {
-                pane: 'pane_UnempRtPop500_Dec13_1',
-                opacity: 1,
-                color: 'rgba(202,202,202,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(124,118,182,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['UnempRtv2'] >= 10.000000 && feature.properties['UnempRtv2'] <= 50.813000 ) {
-                return {
-                pane: 'pane_UnempRtPop500_Dec13_1',
-                opacity: 1,
-                color: 'rgba(202,202,202,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(63,0,125,1.0)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_UnempRtPop500_Dec13_1');
-        map.getPane('pane_UnempRtPop500_Dec13_1').style.zIndex = 401;
-        map.getPane('pane_UnempRtPop500_Dec13_1').style['mix-blend-mode'] = 'normal';
-        var layer_UnempRtPop500_Dec13_1 = new L.geoJson(json_UnempRtPop500_Dec13_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_UnempRtPop500_Dec13_1',
-            layerName: 'layer_UnempRtPop500_Dec13_1',
-            pane: 'pane_UnempRtPop500_Dec13_1',
-            onEachFeature: pop_UnempRtPop500_Dec13_1,
-            style: style_UnempRtPop500_Dec13_1_0,
-        });
-        bounds_group.addLayer(layer_UnempRtPop500_Dec13_1);
-        map.addLayer(layer_UnempRtPop500_Dec13_1);
-        function pop_PovRTPop500_Dec13_2(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['STATEFP'] !== null ? autolinker.link(feature.properties['STATEFP'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYFP'] !== null ? autolinker.link(feature.properties['COUNTYFP'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TRACTCE'] !== null ? autolinker.link(feature.properties['TRACTCE'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['GEOID'] !== null ? autolinker.link(feature.properties['GEOID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LF_Tot16pl'] !== null ? autolinker.link(feature.properties['LF_Tot16pl'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LFc_16pl'] !== null ? autolinker.link(feature.properties['LFc_16pl'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LFc_Unemp'] !== null ? autolinker.link(feature.properties['LFc_Unemp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Pop_Total'] !== null ? autolinker.link(feature.properties['Pop_Total'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FPL_Status'] !== null ? autolinker.link(feature.properties['FPL_Status'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['BlwFPL'] !== null ? autolinker.link(feature.properties['BlwFPL'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['AbvFPL'] !== null ? autolinker.link(feature.properties['AbvFPL'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Tot18pl'] !== null ? autolinker.link(feature.properties['Cv_Tot18pl'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Vet18pl'] !== null ? autolinker.link(feature.properties['Cv_Vet18pl'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Vet1864'] !== null ? autolinker.link(feature.properties['Cv_Vet1864'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_Vet65pl'] !== null ? autolinker.link(feature.properties['Cv_Vet65pl'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Cv_NonVet'] !== null ? autolinker.link(feature.properties['Cv_NonVet'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Pop_TotalN'] !== null ? autolinker.link(feature.properties['Pop_TotalN'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PovRt'] !== null ? autolinker.link(feature.properties['PovRt'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['UnempRtv2'] !== null ? autolinker.link(feature.properties['UnempRtv2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_PovRTPop500_Dec13_2_0(feature) {
-            if (feature.properties['PovRt'] >= 0.000000 && feature.properties['PovRt'] <= 9.990000 ) {
-                return {
-                pane: 'pane_PovRTPop500_Dec13_2',
-                opacity: 1,
-                color: 'rgba(202,202,202,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,245,235,1.0)',
+                fillColor: 'rgba(247,252,245,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['PovRt'] >= 10.000000 && feature.properties['PovRt'] <= 19.990000 ) {
+            if (feature.properties['TotHmls_N'] >= 10.000000 && feature.properties['TotHmls_N'] <= 19.000000 ) {
                 return {
-                pane: 'pane_PovRTPop500_Dec13_2',
+                pane: 'pane_CityHmlsns2022grdtd_1',
                 opacity: 1,
                 color: 'rgba(202,202,202,1.0)',
                 dashArray: '',
@@ -294,13 +149,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(253,189,131,1.0)',
+                fillColor: 'rgba(221,242,215,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['PovRt'] >= 20.000000 && feature.properties['PovRt'] <= 29.990000 ) {
+            if (feature.properties['TotHmls_N'] >= 20.000000 && feature.properties['TotHmls_N'] <= 29.000000 ) {
                 return {
-                pane: 'pane_PovRTPop500_Dec13_2',
+                pane: 'pane_CityHmlsns2022grdtd_1',
                 opacity: 1,
                 color: 'rgba(202,202,202,1.0)',
                 dashArray: '',
@@ -309,13 +164,13 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(238,101,17,1.0)',
+                fillColor: 'rgba(178,224,171,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['PovRt'] >= 30.000000 && feature.properties['PovRt'] <= 80.997000 ) {
+            if (feature.properties['TotHmls_N'] >= 30.000000 && feature.properties['TotHmls_N'] <= 39.000000 ) {
                 return {
-                pane: 'pane_PovRTPop500_Dec13_2',
+                pane: 'pane_CityHmlsns2022grdtd_1',
                 opacity: 1,
                 color: 'rgba(202,202,202,1.0)',
                 dashArray: '',
@@ -324,26 +179,71 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(127,39,4,1.0)',
+                fillColor: 'rgba(123,199,124,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['TotHmls_N'] >= 40.000000 && feature.properties['TotHmls_N'] <= 49.000000 ) {
+                return {
+                pane: 'pane_CityHmlsns2022grdtd_1',
+                opacity: 1,
+                color: 'rgba(202,202,202,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,167,90,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['TotHmls_N'] >= 50.000000 && feature.properties['TotHmls_N'] <= 99.000000 ) {
+                return {
+                pane: 'pane_CityHmlsns2022grdtd_1',
+                opacity: 1,
+                color: 'rgba(202,202,202,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(19,126,58,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['TotHmls_N'] >= 100.000000 && feature.properties['TotHmls_N'] <= 966.000000 ) {
+                return {
+                pane: 'pane_CityHmlsns2022grdtd_1',
+                opacity: 1,
+                color: 'rgba(202,202,202,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
                 interactive: false,
             }
             }
         }
-        map.createPane('pane_PovRTPop500_Dec13_2');
-        map.getPane('pane_PovRTPop500_Dec13_2').style.zIndex = 402;
-        map.getPane('pane_PovRTPop500_Dec13_2').style['mix-blend-mode'] = 'normal';
-        var layer_PovRTPop500_Dec13_2 = new L.geoJson(json_PovRTPop500_Dec13_2, {
+        map.createPane('pane_CityHmlsns2022grdtd_1');
+        map.getPane('pane_CityHmlsns2022grdtd_1').style.zIndex = 401;
+        map.getPane('pane_CityHmlsns2022grdtd_1').style['mix-blend-mode'] = 'normal';
+        var layer_CityHmlsns2022grdtd_1 = new L.geoJson(json_CityHmlsns2022grdtd_1, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_PovRTPop500_Dec13_2',
-            layerName: 'layer_PovRTPop500_Dec13_2',
-            pane: 'pane_PovRTPop500_Dec13_2',
-            onEachFeature: pop_PovRTPop500_Dec13_2,
-            style: style_PovRTPop500_Dec13_2_0,
+            dataVar: 'json_CityHmlsns2022grdtd_1',
+            layerName: 'layer_CityHmlsns2022grdtd_1',
+            pane: 'pane_CityHmlsns2022grdtd_1',
+            onEachFeature: pop_CityHmlsns2022grdtd_1,
+            style: style_CityHmlsns2022grdtd_1_0,
         });
-        bounds_group.addLayer(layer_PovRTPop500_Dec13_2);
-        map.addLayer(layer_PovRTPop500_Dec13_2);
-        function pop_CTsinCityBoundary_3(feature, layer) {
+        bounds_group.addLayer(layer_CityHmlsns2022grdtd_1);
+        map.addLayer(layer_CityHmlsns2022grdtd_1);
+        function pop_CTsinCityBoundary_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -355,9 +255,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_CTsinCityBoundary_3_0() {
+        function style_CTsinCityBoundary_2_0() {
             return {
-                pane: 'pane_CTsinCityBoundary_3',
+                pane: 'pane_CTsinCityBoundary_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -370,21 +270,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_CTsinCityBoundary_3');
-        map.getPane('pane_CTsinCityBoundary_3').style.zIndex = 403;
-        map.getPane('pane_CTsinCityBoundary_3').style['mix-blend-mode'] = 'normal';
-        var layer_CTsinCityBoundary_3 = new L.geoJson(json_CTsinCityBoundary_3, {
+        map.createPane('pane_CTsinCityBoundary_2');
+        map.getPane('pane_CTsinCityBoundary_2').style.zIndex = 402;
+        map.getPane('pane_CTsinCityBoundary_2').style['mix-blend-mode'] = 'normal';
+        var layer_CTsinCityBoundary_2 = new L.geoJson(json_CTsinCityBoundary_2, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_CTsinCityBoundary_3',
-            layerName: 'layer_CTsinCityBoundary_3',
-            pane: 'pane_CTsinCityBoundary_3',
-            onEachFeature: pop_CTsinCityBoundary_3,
-            style: style_CTsinCityBoundary_3_0,
+            dataVar: 'json_CTsinCityBoundary_2',
+            layerName: 'layer_CTsinCityBoundary_2',
+            pane: 'pane_CTsinCityBoundary_2',
+            onEachFeature: pop_CTsinCityBoundary_2,
+            style: style_CTsinCityBoundary_2_0,
         });
-        bounds_group.addLayer(layer_CTsinCityBoundary_3);
-        map.addLayer(layer_CTsinCityBoundary_3);
-        function pop_WSC_geocodepts2_4(feature, layer) {
+        bounds_group.addLayer(layer_CTsinCityBoundary_2);
+        map.addLayer(layer_CTsinCityBoundary_2);
+        function pop_WSC_geocodepts2_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">WorkSource</th>\
@@ -434,9 +334,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_WSC_geocodepts2_4_0() {
+        function style_WSC_geocodepts2_3_0() {
             return {
-                pane: 'pane_WSC_geocodepts2_4',
+                pane: 'pane_WSC_geocodepts2_3',
                 radius: 4.8,
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
@@ -450,26 +350,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_WSC_geocodepts2_4');
-        map.getPane('pane_WSC_geocodepts2_4').style.zIndex = 404;
-        map.getPane('pane_WSC_geocodepts2_4').style['mix-blend-mode'] = 'normal';
-        var layer_WSC_geocodepts2_4 = new L.geoJson(json_WSC_geocodepts2_4, {
+        map.createPane('pane_WSC_geocodepts2_3');
+        map.getPane('pane_WSC_geocodepts2_3').style.zIndex = 403;
+        map.getPane('pane_WSC_geocodepts2_3').style['mix-blend-mode'] = 'normal';
+        var layer_WSC_geocodepts2_3 = new L.geoJson(json_WSC_geocodepts2_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_WSC_geocodepts2_4',
-            layerName: 'layer_WSC_geocodepts2_4',
-            pane: 'pane_WSC_geocodepts2_4',
-            onEachFeature: pop_WSC_geocodepts2_4,
+            dataVar: 'json_WSC_geocodepts2_3',
+            layerName: 'layer_WSC_geocodepts2_3',
+            pane: 'pane_WSC_geocodepts2_3',
+            onEachFeature: pop_WSC_geocodepts2_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_WSC_geocodepts2_4_0(feature));
+                return L.circleMarker(latlng, style_WSC_geocodepts2_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_WSC_geocodepts2_4);
-        map.addLayer(layer_WSC_geocodepts2_4);
+        bounds_group.addLayer(layer_WSC_geocodepts2_3);
+        map.addLayer(layer_WSC_geocodepts2_3);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -481,30 +381,30 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/WSC_geocodepts2_4.png" /> WSC_geocodepts2': layer_WSC_geocodepts2_4,'<img src="legend/CTsinCityBoundary_3.png" /> CTs in City Boundary': layer_CTsinCityBoundary_3,'PovRT Pop>500_Dec 13<br /><table><tr><td style="text-align: center;"><img src="legend/PovRTPop500_Dec13_2_Low0990.png" /></td><td>Low (0 - 9.9%)</td></tr><tr><td style="text-align: center;"><img src="legend/PovRTPop500_Dec13_2_Medium101991.png" /></td><td>Medium (10 - 19.9%)</td></tr><tr><td style="text-align: center;"><img src="legend/PovRTPop500_Dec13_2_High202992.png" /></td><td>High (20 - 29.9%)</td></tr><tr><td style="text-align: center;"><img src="legend/PovRTPop500_Dec13_2_Severe303.png" /></td><td>Severe (30% +)</td></tr></table>': layer_PovRTPop500_Dec13_2,'UnempRt Pop>500_Dec 13<br /><table><tr><td style="text-align: center;"><img src="legend/UnempRtPop500_Dec13_1_Low0490.png" /></td><td>Low (0 - 4.9%)</td></tr><tr><td style="text-align: center;"><img src="legend/UnempRtPop500_Dec13_1_Medium5691.png" /></td><td>Medium (5 - 6.9%)</td></tr><tr><td style="text-align: center;"><img src="legend/UnempRtPop500_Dec13_1_High7992.png" /></td><td>High (7 - 9.9%)</td></tr><tr><td style="text-align: center;"><img src="legend/UnempRtPop500_Dec13_1_Severe103.png" /></td><td>Severe (10% +)</td></tr></table>': layer_UnempRtPop500_Dec13_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/WSC_geocodepts2_3.png" /> WSC_geocodepts2': layer_WSC_geocodepts2_3,'<img src="legend/CTsinCityBoundary_2.png" /> CTs in City Boundary': layer_CTsinCityBoundary_2,'City Hmlsns 2022 grdtd<br /><table><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_090.png" /></td><td>0 - 9</td></tr><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_10191.png" /></td><td>10 - 19</td></tr><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_20292.png" /></td><td>20 - 29</td></tr><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_30393.png" /></td><td>30 - 39</td></tr><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_40494.png" /></td><td>40 - 49</td></tr><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_50995.png" /></td><td>50 - 99</td></tr><tr><td style="text-align: center;"><img src="legend/CityHmlsns2022grdtd_1_1006.png" /></td><td>100+</td></tr></table>': layer_CityHmlsns2022grdtd_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         var i = 0;
-        layer_WSC_geocodepts2_4.eachLayer(function(layer) {
+        layer_WSC_geocodepts2_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Short WS_1'] !== null?String('<div style="color: #323232; font-size: 9pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Short WS_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_WSC_geocodepts2_4'});
+            layer.bindTooltip((layer.feature.properties['Short WS_1'] !== null?String('<div style="color: #323232; font-size: 9pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Short WS_1']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_WSC_geocodepts2_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_WSC_geocodepts2_4]);
+        resetLabels([layer_WSC_geocodepts2_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_WSC_geocodepts2_4]);
+            resetLabels([layer_WSC_geocodepts2_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_WSC_geocodepts2_4]);
+            resetLabels([layer_WSC_geocodepts2_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_WSC_geocodepts2_4]);
+            resetLabels([layer_WSC_geocodepts2_3]);
         });
         </script>
     </body>
